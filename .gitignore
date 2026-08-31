@@ -1,0 +1,37 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.db
+*.sqlite3
+otho.db
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Env / IDE
+.env
+.env.local
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Alembic
+# keep versions; ignore local overrides
+
+# Logs
+*.log
