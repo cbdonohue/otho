@@ -194,6 +194,10 @@ cd frontend && npm run typecheck && npm run build
 
 See `.env.example`. `DATABASE_URL` defaults to SQLite; set `postgresql+asyncpg://...` for Postgres. Leave `REDIS_URL` empty for the in-process cache. CORS defaults include `http://localhost:5173`.
 
+## Roadmap
+
+v0.1 is a working modular monolith skeleton. Remaining work — current state, workstreams, plugin backlog, and the next three things — lives in [`docs/PLAN.md`](docs/PLAN.md).
+
 ## Branding
 
 The product is **Otho**. Entry-point group: **`otho.plugins`**. UI label for the agent: **ASK OTHO**.
