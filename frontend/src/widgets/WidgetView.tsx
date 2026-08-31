@@ -1,4 +1,4 @@
-import type { Widget } from "./api";
+import type { Widget } from "../api";
 
 function sev(w: Widget): string {
   return String(w.severity || w.type || "info");
