@@ -1,0 +1,15 @@
+{
+  "name": "Otho",
+  "install": "pip install -e \".[dev]\" && cd frontend && npm ci",
+  "terminals": [
+    {
+      "name": "backend",
+      "command": "cd /workspace && PYTHONPATH=backend python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload"
+    },
+    {
+      "name": "frontend",
+      "command": "cd /workspace/frontend && npm run dev -- --host 127.0.0.1 --port 5173"
+    }
+  ],
+  "ports": [8000, 5173]
+}
