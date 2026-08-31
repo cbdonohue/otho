@@ -33,13 +33,15 @@ PLAYERS = [
     ("WR6", "Wan'Dale Robinson", "WR", "NYG", 95, None),
     ("WR7", "Rome Odunze", "WR", "CHI", 85, None),
     ("TE3", "Pat Freiermuth", "TE", "PIT", 120, None),
+    ("FA1", "Javonte Williams", "RB", "DEN", 88, None),
+    ("FA2", "Josh Downs", "WR", "IND", 92, None),
+    ("FA3", "Tyler Allgeier", "RB", "ATL", 105, None),
+    ("FA4", "Romeo Doubs", "WR", "GB", 98, None),
+    ("FA5", "Sam Darnold", "QB", "MIN", 72, None),
 ]
 
 
 async def seed_demo_league(session: AsyncSession, league_id: str = "demo") -> str:
-    existing = await session.get(LeagueRow, league_id)
-    if existing:
-        return league_id
     for pid, name, pos, team, rank, inj in PLAYERS:
         existing = await session.get(PlayerRow, pid)
         if existing:
@@ -60,6 +62,10 @@ async def seed_demo_league(session: AsyncSession, league_id: str = "demo") -> st
                 years_exp=4,
             )
         )
+    existing = await session.get(LeagueRow, league_id)
+    if existing:
+        await session.commit()
+        return league_id
     session.add(
         LeagueRow(
             league_id=league_id,

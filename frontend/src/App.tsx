@@ -132,7 +132,7 @@ export default function App() {
         <NavLink to="/matchups">Matchups</NavLink>
         <NavLink to="/playoffs">Playoffs</NavLink>
       </nav>
-      {(loading || error) && (
+      {(loading || error) && !data && (
         <div className="page muted">{loading ? "Crunching plugins…" : error}</div>
       )}
       <Routes>

@@ -39,7 +39,7 @@ export function AskOtho({
     <div className="ask-dock">
       {answer && (
         <div className="ask-panel">
-          <div className="ask-label">OTH O · {mode}</div>
+          <div className="ask-label">OTHO · {mode}</div>
           <div className="ask-answer">{answer}</div>
           {tools.length > 0 && (
             <div className="muted" style={{ marginTop: 8, fontFamily: "var(--font-mono)", fontSize: 11 }}>

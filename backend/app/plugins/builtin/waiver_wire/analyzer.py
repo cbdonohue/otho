@@ -19,8 +19,13 @@ def positional_need(roster: Roster, players: dict[str, Player], projections: dic
     for pos, values in totals.items():
         values.sort(reverse=True)
         top = sum(values[:2]) if pos in {"RB", "WR"} else (values[0] if values else 0.0)
-        gap = max(0.0, typical[pos] - top)
-        need[pos] = round(1.0 + gap / max(typical[pos], 1), 2)
+        if not values:
+            need[pos] = 1.85
+        elif top >= typical[pos]:
+            # Already strong — don't flood waivers with the same position.
+            need[pos] = 0.35 if pos == "QB" else 0.65
+        else:
+            need[pos] = round(1.0 + gap / max(typical[pos], 1), 2)
     return need
 
 

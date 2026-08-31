@@ -15,7 +15,7 @@ def get_engine():
         settings = get_settings()
         kwargs: dict = {"echo": False}
         if settings.is_sqlite:
-            kwargs["connect_args"] = {"check_same_thread": False}
+            kwargs["connect_args"] = {"check_same_thread": False, "timeout": 30}
         _engine = create_async_engine(settings.database_url, **kwargs)
     return _engine
 
